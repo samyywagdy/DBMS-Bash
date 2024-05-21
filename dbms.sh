@@ -31,7 +31,9 @@ connect_db(){
 	then
 		if [[ -e $db_name  && -d $db_name ]]
 		then
-			echo "DB $db_name connected Successfully"	
+			echo "DB $db_name connected Successfully"
+		       source ../table.sh
+		        table_menu	
 		else
 			echo "Error!, Database Not Exists! Or It Should Be A Directory"
 		fi
@@ -66,8 +68,9 @@ validate_name() {
 #-----------------------------Main menu function--------------------------------
 main_menu(){
 	echo "------------------------------------------------------------------"
-	echo "                welcome the the DB                                "
+	echo "                welcome the My Database                           "
 	echo "------------------------------------------------------------------"
+	cd ./Database
 	PS3="Enter your choice>>>  "
 	select choice in "Create DB" "List DB" "Connect to DB" "Drop DB" "Exit"
 	do
